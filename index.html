@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Comic Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+    }
+    .comic-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #ff4d94;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+    .comic-card:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-pink-200 shadow-md py-4 px-8 flex justify-between items-center sticky top-0 z-50">
+    <h1 class="comic-title text-2xl">Love Comic Hub</h1>
+    <ul class="flex space-x-6 font-semibold">
+      <li><a href="#home" class="hover:text-pink-600">Home</a></li>
+      <li><a href="#comics" class="hover:text-pink-600">Comics</a></li>
+      <li><a href="#about" class="hover:text-pink-600">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="text-center py-20">
+    <h2 class="comic-title mb-6 text-5xl">Welcome to Love Comic Hub</h2>
+    <p class="text-gray-700 text-lg max-w-xl mx-auto">
+      Discover romantic comics, follow stories chapter by chapter, and dive into the world of hearts and destiny.
+    </p>
+<img src="comic.png" alt="Romantic stars"
+     class="mx-auto mt-8 w-80 rounded-xl shadow-lg block transform transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-2xl">
+
+
+
+  </section>
+
+  <!-- Comics List Section -->
+  <section id="comics" class="py-20">
+    <h2 class="comic-title text-center text-4xl mb-12">Our Comics</h2>
+    <div class="max-w-2xl mx-auto mb-8">
+  <input 
+    type="text" 
+    id="comicSearch" 
+    placeholder="Search Comics..." 
+    class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-300"
+    onkeyup="filterComics()"
+  >
+</div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+      <!-- Comic 1 -->
+      <a href="onesoultwohearts.html" class="comic-card bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300">
+        <img src="onesoultwohearts.png" alt="One Soul Two Hearts" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="comic-title text-2xl mb-2">One Soul, Two Hearts</h3>
+          <p class="text-gray-600">A romantic journey of two hearts meeting through destiny and GC adventures. Follow their love chapter by chapter.</p>
+        </div>
+      </a>
+
+      <!-- Comic 2 -->
+      <!-- <a href="comic2.html" class="comic-card bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300">
+        <img src="https://i.ibb.co/7y6Wx2Z/romantic-bg.jpg" alt="Second Comic" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="comic-title text-2xl mb-2">Dreams of Hearts</h3>
+          <p class="text-gray-600">Another romantic story filled with struggles, hope, and magical destiny. New chapters every week!</p>
+        </div>
+      </a> -->
+
+      <!-- Add more comics here -->
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-pink-50 text-center">
+    <h2 class="comic-title text-4xl mb-6">About Love Comic Hub</h2>
+    <p class="text-gray-700 max-w-2xl mx-auto">
+      Love Comic Hub is your ultimate destination for romantic comics. Follow stories chapter by chapter, explore characters’ lives, and experience destiny, friendship, and love in a magical way.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-pink-200 py-8 text-center text-gray-700">
+    &copy; 2025 Love Comic Hub | All rights reserved
+  </footer>
+
+
+  <script>
+function filterComics() {
+  const input = document.getElementById('comicSearch').value.toLowerCase();
+  const comics = document.querySelectorAll('.comic-card');
+  
+  comics.forEach(comic => {
+    const title = comic.querySelector('h3').innerText.toLowerCase();
+    if(title.includes(input)) {
+      comic.style.display = '';
+    } else {
+      comic.style.display = 'none';
+    }
+  });
+}
+</script>
+
+
+</body>
+</html>
